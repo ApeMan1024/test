@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js实现轮播-2</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            position: absolute;
+            margin-top: -100px;
+            top: 50%;
+            margin-left: -100px;
+            left: 50%;
+        }
+
+        .box>.div {
+            width: 1000px;
+            height: 200px;
+        }
+
+        .box>.div>div {
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            display: none;
+        }
+
+        .bo1 {
+            background: #f00;
+            display: block;
+        }
+
+        .bo2 {
+            background: #0f0;
+        }
+
+        .bo3 {
+            background: #00f;
+        }
+
+        .bo4 {
+            background: #123;
+        }
+
+        .bo5 {
+            background: #671;
+        }
+    </style>
+    <script>
+        function index(){
+            var n=0;
+            return function(){
+                return n++;
+            }
+        }
+        window.onload=function(){
+            with(document){
+                var bo=getElementsByClassName("div")[0].getElementsByTagName("div");
+            }
+            var m=index();
+            setInterval(function(){
+                var n=m();
+                if(n==4){
+                    n=0;
+                    m=index();
+                }  
+                for(i=0;i<bo.length;i++)bo[i].style.display="none";
+                bo[n++].style.display="block";
+            },1000);
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="div">
+            <div class="bo1">1</div>
+            <div class="bo2">2</div>
+            <div class="bo3">3</div>
+            <div class="bo4">4</div>
+            <div class="bo5">5</div>
+        </div>
+    </div>
+</body>
+</html>

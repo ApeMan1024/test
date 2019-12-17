@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js实现轮播</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            position: absolute;
+            margin-top: -100px;
+            top: 50%;
+            margin-left: -100px;
+            left: 50%;
+        }
+
+        .box>.div {
+            width: 1000px;
+            height: 200px;
+        }
+
+        .box>.div>div {
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            float: left;
+        }
+
+        .bo1 {
+            background: #f00;
+        }
+
+        .bo2 {
+            background: #0f0;
+        }
+
+        .bo3 {
+            background: #00f;
+        }
+
+        .bo4 {
+            background: #123;
+        }
+
+        .bo5 {
+            background: #671;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            with (document) {
+                var box1 = getElementsByClassName("div")[0];
+            }
+            setInterval(function () {
+
+                if (parseInt(box1.style.marginLeft) != -800) {
+
+                    var i=0;
+                    var timer=setInterval(function () {
+                        if(i==4){
+                            clearInterval(timer);
+                            return;
+                        }
+                        box1.style.marginLeft = 
+                        (parseInt(box1.style.marginLeft || "0px") - 50) + "px";
+                        i++;
+                    }, 200);
+                }
+                else {
+                    box1.style.marginLeft = "0px";
+                }
+            }, 1000);
+        }
+        
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="div">
+            <div class="bo1">1</div>
+            <div class="bo2">2</div>
+            <div class="bo3">3</div>
+            <div class="bo4">4</div>
+            <div class="bo5">5</div>
+        </div>
+    </div>
+</body>
+
+</html>

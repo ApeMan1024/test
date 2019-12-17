@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bootstrap实现轮播</title>
+    <script src="../bootstrap/js/jquery.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    
+    <style>
+        .item>div{
+            width:200px;
+            height:200px;
+        }
+        .div1{
+            background:#f00;
+        }
+        .div2{
+            background:#0f0;
+        }
+        .div3{
+            background:#00f;
+        }
+        #myCarousel{
+            width:200px;
+            position: absolute;
+            margin-top:-100px;
+            top:50%;
+            margin-left:-100px;
+            left:50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1" ></li>
+            <li data-target="#myCarousel" data-slide-to="2" ></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="div1" ></div>
+           
+            </div>
+            <div class="item">
+                <div class="div2" ></div>
+                
+            </div>
+            <div class="item">
+                <div class="div3" style="display: inline-block;"></div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" style="background:none">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"  style="background:none">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+</body>
+</html>

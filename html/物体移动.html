@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>物体移动</title>
+    <!--0 110 240 350 -460-->
+    <style>
+        .left{
+            width:100px;
+            height:200px;
+            /* background:url("../images/20190307175113112.png") no-repeat;
+            background-size: cover; */
+            position: relative;
+            overflow: hidden;
+        }
+        img{
+            position: absolute;
+            height:200px;
+        }
+        /* img:nth-child(1){
+            display: block;
+        } */
+        /* .img1{
+            position: absolute;
+            height:100%;
+            width:100%;
+            background:url("../images/20190307175113112.png") no-repeat;
+            background-size: cover;
+            opacity: 1;
+            animation: key 1s linear 0s infinite normal running;
+        }
+        .img2{
+            position: absolute;
+            height:100%;
+            width:100%;
+            background:url("../images/20190307175113112.png") no-repeat;
+            background-size: cover;
+            background-position: -110px 0;
+            opacity: 0;
+            animation: key1 1s linear 0s infinite normal running;
+        }
+        .img3{
+            position: absolute;
+            height:100%;
+            width:100%;
+            background:url("../images/20190307175113112.png") no-repeat;
+            background-size: cover;
+            background-position: -240px 0;
+            opacity: 0;
+            animation: key2 1s linear 0s infinite normal running;
+        }
+        .img4{
+            position: absolute;
+            height:100%;
+            width:100%;
+            background:url("../images/20190307175113112.png") no-repeat;
+            background-size: cover;
+            background-position: -350px 0;
+            opacity: 0;
+            animation: key3 1s linear 0s infinite normal running;
+        }
+        @keyframes key {
+            0%{
+                opacity: 1;
+            }
+            25%{
+                opacity: 0;
+            }
+            50%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 0;
+            }
+        }
+        @keyframes  key1 {
+            0%{
+                opacity: 0;
+            }
+            25%{
+                opacity: 1;
+            }
+            50%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 0;
+            }
+        }
+        @keyframes  key2 {
+            0%{
+                opacity: 0;
+            }
+            25%{
+                opacity: 0;
+            }
+            50%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+            }
+        }
+        @keyframes  key3 {
+            0%{
+                opacity: 0;
+            }
+            25%{
+                opacity: 0;
+            }
+            50%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        } */
+    </style>
+</head>
+<body>
+    <div class="left">
+         <img src="../images/20190307175113112.png" alt="" id="q">
+         <!-- <div class="img1">
+
+         </div>
+         <div class="img2">
+
+         </div>
+         <div class="img3">
+
+         </div>
+         <div class="img4">
+
+            </div> -->
+    </div> 
+     <script>
+        var img1=document.getElementById("q");
+       
+        var d=document.getElementsByClassName("left")[0];
+        for(i=0;i<4;i++){
+            d.append(img1.cloneNode(true));
+        }
+        var s=d.getElementsByTagName("img");
+        s[1].style.marginLeft="-110px";
+        s[2].style.marginLeft="-240px";
+        s[3].style.marginLeft="-350px";
+        s[4].style.marginLeft="-460px";
+        setInterval(function(){
+            var index=0;
+            for(i=0;i<5;i++){
+                var b=s[i].style.display;
+                if(b!="none")index=i;
+                s[i].style.display="none";
+            }
+            if(index==s.length-1)index=-1;
+            s[index+1].style.display="block";
+        },200);
+
+
+
+
+    </script>
+</body>
+</html>

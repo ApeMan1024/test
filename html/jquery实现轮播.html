@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery实现轮播</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+        .w{
+            width:200px;
+            height:200px;
+            overflow: hidden;
+            position:absolute;
+            margin:-100px 0 0 -100px;
+            left:50%;
+            top:50%;
+        }
+        .m{
+            width:1200px;
+            height:200px;
+            
+        }
+        .m>div{
+            width:200px;
+            height:200px;
+            float: left;
+            line-height: 200px;
+            text-align: center;
+        }
+        .box1{
+            background:#f00;
+            
+        }
+        .box2{
+            background:#00f;
+        }
+        .box3{
+            background:#0f0;
+        }
+
+        .box4{
+            background:#123;
+        }
+        .box5{
+            background:#aaa;
+        }
+        .box6{
+            background:#d4d;
+        }
+        .e{
+            position: relative;
+            top:-20px;
+            opacity: 0.5;
+        }
+        .e span{
+            display: inline-block;
+            width:20px;
+            height:20px;
+            border-radius: 50%;
+            background:#fff;
+            margin:0 5px 0 5px;
+            text-align: center;
+            line-height: 20px;
+
+        }
+    </style>
+    <script>
+        $(function(){
+            var n=$('.w .m div').length;
+            var len=$('.w .m div').eq(0).outerWidth(true);
+            var m=$(".w .m");
+            var index=0;
+            var spn=$(".e span");
+            spn.eq(index++).css('background','#1dd');
+            setInterval(function(){
+                spn.css("background",'#fff');
+                if(parseInt(m.css("margin-left"))==-len*(n-1)){
+                    m.css('margin-left','0px');
+                    index=0;
+                    spn.eq(index++).css('background','#1dd');
+                }
+                else{
+                    var l=m.css('margin-left');
+                    m.css('margin-left',(parseInt(l)-len)+"px");
+                    spn.eq(index++).css('background','#1dd');
+                }
+            },1000);
+        })
+    </script>
+</head>
+<body>
+    <div class="w">
+        <div class="m">
+            <div class="box1">1</div>
+            <div class="box2">2</div>
+            <div class="box3">3</div>
+            <div class="box4">4</div>
+            <div class="box5">5</div>
+            <div class="box6">6</div>
+        </div>
+        <div class="e">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+
+        </div>
+    </div>
+</body>
+</html>
